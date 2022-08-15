@@ -1,0 +1,23 @@
+{
+  "name": "explore",
+  "version": "1.0.0",
+  "description": "- Install NodeJS - Explore NPM - Explore HTTP core module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pradeepku123/node-explore.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pradeepku123/node-explore/issues"
+  },
+  "homepage": "https://github.com/pradeepku123/node-explore#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
