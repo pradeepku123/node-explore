@@ -4,7 +4,7 @@
   "description": "- Install NodeJS - Explore NPM - Explore HTTP core module",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
