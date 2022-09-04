@@ -1,23 +1,26 @@
-// console.log("Welcome NodeJS");
-
-// function add(a, b) {
-//   return a + b;
-// }
-
-// const sum = add(10, 30);
-
-// console.log(sum);
-
 const http = require("http");
+const fs = require("fs");
 
+const PORT = 3000;
+//Create local Sever
 const server = http.createServer((req, res) => {
-  console.log(req.url);
-  console.log(req.method);
-  res.setHeader("content-type", "text/html");
-  res.write("Work");
-  res.end();
+  if (req.url === "/") {
+    res.writeHead(200, { "Content-Type": "text/html" });
+    fs.readFile("pages/home-page.html", "utf8", (err, data) => {
+      if (err) throw err;
+      res.write(data);
+      res.end();
+    });
+  } else {
+    res.writeHead(200, { "Content-Type": "text/html" });
+    fs.readFile("pages/pageNotFound.html", "utf8", (err, data) => {
+      if (err) throw err;
+      res.write(data);
+      res.end();
+    });
+  }
 });
 
-server.listen(3000, () => {
-  console.log("Port 3000 opened");
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
