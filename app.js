@@ -7,6 +7,11 @@ const app = express();
 
 const PORT = 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  "/css",
+  express.static(path.join("./", "node_modules", "bootstrap", "dist", "css"))
+);
 app.use("/home", homeRouter);
 app.use("/user", userRouter);
 
