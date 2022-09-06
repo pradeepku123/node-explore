@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 const app = express();
 
 const PORT = 3000;
+app.set("view engine", "ejs");
+app.set("views", "views");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(
@@ -16,7 +18,11 @@ app.use("/home", homeRouter);
 app.use("/user", userRouter);
 
 app.all("/*", (req, res) => {
-  res.status(404).sendFile(path.join(__dirname, "views/404.html"));
+  const page_404 = {
+    pageTitle: "Page Not Found",
+    message: "Some thing Wrong Page not Found 404",
+  };
+  res.status(404).render("404", page_404);
 });
 
 app.listen(PORT, () => {
